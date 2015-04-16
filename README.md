@@ -19,10 +19,7 @@ l'application.
 Fonctionnalités
 Le fichier d'entrée, en format JSON, aura l'air de ceci :
 
-*{
-
- "numero_de_permis": "A0001",
-
+{ "numero_de_permis": "A0001",
  "cycle": "2012-2014",
  "heures_transferees_du_cycle_precedent": 2,
  "activites": [
@@ -58,18 +55,19 @@ Le fichier d'entrée, en format JSON, aura l'air de ceci :
  "date": "2014-02-02"
  }
  ]
-}*
+}
 
 Le fichier de résultat généré par le logiciel devra ressembler à ceci :
 
-*{
+{
  "complet": false,
  "erreurs": [
  "L'activité Visite d'établissements architecturaux est dans une
  catégorie non reconnue. Elle sera ignorée.",
  "Il manque 2 heures de formation pour compléter le cycle."
  ]
-}*
+}
+
 Le programme devra prendre ce fichier comme argument lors de l'exécution du logiciel dans une
 console. Le fichier où sera placé le résultat devra également être spécifié à la console. Exemple :
 java -jar FormationContinue.jar declaration.json resultat.json
@@ -127,11 +125,13 @@ Voici les contraintes que vous devez respecter :
 
 
 ####Demande de changement #1
-========================
+============================
 Votre client vous demande de lui livrer ces fonctionnalités pour le 27 octobre 2014, avant 9h30. 
 La date de livraison n'est pas négociable.
 Le contenu de ce document s'ajoute à la demande initiale du client.
+
 ####Exigences fonctionnelles
+
 Le logiciel doit maintenant être en mesure de valider les règles de formation continue de plusieurs
 ordres professionnels. Un nouveau champ "ordre" sera ajouté dans l'objet contenu dans le fichier
 d'entrée. Ce champ pourra avoir 3 valeurs possibles, dépendamment de l'ordre professionnel pour
@@ -141,6 +141,7 @@ lequel la déclaration a été faite :
 * psychologues
 Toutes les règles développées jusqu'à date s'appliquent uniquement aux architectes. Les catégories
 d'activités sont les mêmes pour tous les ordres professionnels.
+
 ####Les architectes
 Voici quelques modifications à apporter aux règles de validation pour l'ordre des architectes.
 * Nous ajoutons la validation de deux nouveaux cycles. Le cycle "2010-2012" pourra contenir
@@ -149,6 +150,7 @@ des activités effectuées du 1er avril 2010 au 1er avril 2012 inclusivement. Le
 inclusivement (oui, juillet). Pour ces deux nouveaux cycles, ce sont les mêmes règles que le
 cycle "2012-2014" à l'exception que le seuil minimal d'heures de formation continue est de
 42 heures.
+
 ####Les géologues
 La durée d'un cycle de formation continue pour les géologues est de 3 ans. Voici les règles à
 considérer.
@@ -200,6 +202,7 @@ recommandations présentées dans le chapitre 4 du livre Coder proprement.
 respecter le "Principe de responsabilité unique" décrit dans le chapitre 3 du livre Coder proprement.
 
 ####Demande de changement #2
+============================
 La date de livraison est pour le 19 novembre 2014 à 9h30.
 Le contenu de ce document s'ajoute à la demande initiale du client et à la première demande de
 changement.
@@ -251,6 +254,7 @@ cycle.
 * Le numéro de permis est composé de 5 chiffres. Ex : 83453
 
 ####Demande de changement #3
+============================
 La date de livraison est pour le 8 décembre 2014 avant 9h30.
 Le contenu de ce document s'ajoute à la demande initiale du client et à toutes les demandes de
 changement précédentes.
@@ -259,6 +263,7 @@ Voici quelques statistiques à ajouter à l'application :
 * le nombre total de déclarations valides et complètes par type d'ordre professionnel;
 * le nombre total de déclarations valides et incomplètes par type d'ordre professionnel;
 * le nombre de déclarations soumises avec un numéro de permis invalide.
+
 ####Exigences non fonctionnelles
 Voici quelques contraintes à respecter qui touchent votre code :
 * Tout le nouveau code écrit pour cette DDC doit être rédigé selon la méthodologie TestDriven Development.
